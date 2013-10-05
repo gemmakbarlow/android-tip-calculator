@@ -16,7 +16,7 @@
         android:layout_alignBottom="@+id/button15Percent"
         android:layout_marginLeft="21dp"
         android:layout_toRightOf="@+id/button15Percent"
-        android:text="Button" />
+        android:text="@string/btn20PercentValueString" />
 
     <Button
         android:id="@+id/btn10percent"
@@ -26,18 +26,7 @@
         android:layout_marginRight="20dp"
         android:layout_marginTop="186dp"
         android:layout_toLeftOf="@+id/button15Percent"
-        android:text="Button" />
-
-    <TextView
-        android:id="@+id/tvTip"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/button15Percent"
-        android:layout_below="@+id/button15Percent"
-        android:layout_marginRight="52dp"
-        android:layout_marginTop="84dp"
-        android:text="Tip is:"
-        android:textAppearance="?android:attr/textAppearanceSmall" />
+        android:text="@string/btn10PercentValueString" />
 
     <Button
         android:id="@+id/button15Percent"
@@ -46,29 +35,67 @@
         android:layout_alignBaseline="@+id/btn10percent"
         android:layout_alignBottom="@+id/btn10percent"
         android:layout_centerHorizontal="true"
-        android:text="Button" />
+        android:text="@string/btn15PercentValueString" />
 
     <EditText
-        android:id="@+id/editText1"
+        android:id="@+id/etTipInput"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="67dp"
-        android:ems="10" >
+        android:ems="10"
+        android:hint="@string/tvEnterCostString"
+        android:inputType="numberDecimal" >
 
         <requestFocus />
     </EditText>
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/tvFinalTipValue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/tvTip"
-        android:layout_alignBottom="@+id/tvTip"
-        android:layout_alignRight="@+id/editText1"
-        android:layout_marginRight="38dp"
-        android:text="Small Text"
-        android:textAppearance="?android:attr/textAppearanceSmall" />
+        android:layout_alignBottom="@+id/tvFinalTipDescription"
+        android:layout_alignLeft="@+id/button15Percent"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/tvFinalTipDescription"
+        android:paddingLeft="10dp"
+        android:text="@string/tvUnknownValueString"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/tvOverallCostDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/btn10percent"
+        android:layout_below="@+id/tvFinalTipDescription"
+        android:layout_marginTop="17dp"
+        android:layout_toLeftOf="@+id/tvFinalTipValue"
+        android:focusable="true"
+        android:text="@string/tvTotalDescriptionString"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tvFinalTipDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/btn10percent"
+        android:layout_alignRight="@+id/tvOverallCostDescription"
+        android:layout_below="@+id/btn10percent"
+        android:layout_marginTop="36dp"
+        android:text="@string/tvFinalTipDescriptionString"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tvOverallValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/tvOverallCostDescription"
+        android:layout_alignLeft="@+id/tvFinalTipValue"
+        android:paddingLeft="10dp"
+        android:text="@string/tvUnknownValueString"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
 
 </RelativeLayout>
