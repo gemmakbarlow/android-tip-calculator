@@ -16,7 +16,8 @@
         android:layout_alignBottom="@+id/button15Percent"
         android:layout_marginLeft="21dp"
         android:layout_toRightOf="@+id/button15Percent"
-        android:text="@string/btn20PercentValueString" />
+        android:text="@string/btn20PercentValueString" 
+        android:onClick="btn20PercentTapped" />
 
     <Button
         android:id="@+id/btn10percent"
@@ -26,7 +27,8 @@
         android:layout_marginRight="20dp"
         android:layout_marginTop="186dp"
         android:layout_toLeftOf="@+id/button15Percent"
-        android:text="@string/btn10PercentValueString" />
+        android:text="@string/btn10PercentValueString" 
+        android:onClick="btn10PercentTapped" />
 
     <Button
         android:id="@+id/button15Percent"
@@ -35,21 +37,8 @@
         android:layout_alignBaseline="@+id/btn10percent"
         android:layout_alignBottom="@+id/btn10percent"
         android:layout_centerHorizontal="true"
-        android:text="@string/btn15PercentValueString" />
-
-    <EditText
-        android:id="@+id/etTipInput"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="67dp"
-        android:ems="10"
-        android:hint="@string/tvEnterCostString"
-        android:inputType="numberDecimal" >
-
-        <requestFocus />
-    </EditText>
+        android:text="@string/btn15PercentValueString"
+        android:onClick="btn15PercentTapped" />
 
     <TextView
         android:id="@+id/tvFinalTipValue"
@@ -60,7 +49,7 @@
         android:layout_alignParentRight="true"
         android:layout_alignTop="@+id/tvFinalTipDescription"
         android:paddingLeft="10dp"
-        android:text="@string/tvUnknownValueString"
+        android:hint="@string/tvUnknownValueString"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
@@ -95,7 +84,43 @@
         android:layout_alignBottom="@+id/tvOverallCostDescription"
         android:layout_alignLeft="@+id/tvFinalTipValue"
         android:paddingLeft="10dp"
-        android:text="@string/tvUnknownValueString"
+        android:hint="@string/tvUnknownValueString"
         android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <EditText
+        android:id="@+id/etTipInput"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/btn20Percent"
+        android:layout_alignLeft="@+id/btn10percent"
+        android:layout_alignRight="@+id/btn20Percent"
+        android:layout_marginBottom="65dp"
+        android:hint="@string/tvEnterCostString"
+        android:inputType="numberDecimal"
+        android:maxLength="@integer/MAX_INITIAL_COST_DIGITS"
+        android:textAlignment="center" >
+
+        <requestFocus />
+    </EditText>
+
+    <TextView
+        android:id="@+id/tvInvalidCostEntered"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:text="@string/tvInvalidValueEnteredString"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <Button
+        android:id="@+id/btnClearInput"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="19dp"
+        android:text="@string/btnClearInputString"
+        android:onClick="btnClearInputTapped" />
 
 </RelativeLayout>

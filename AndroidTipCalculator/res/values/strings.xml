@@ -6,9 +6,11 @@
     <string name="btn10PercentValueString">10%</string>
     <string name="btn15PercentValueString">15%</string>
     <string name="btn20PercentValueString">20%</string>
-    <string name="tvEnterCostString">Enter Cost</string>
+    <string name="tvEnterCostString">Enter Cost: $1 - $1000000</string>
     <string name="tvFinalTipDescriptionString">Tip:</string>
     <string name="tvUnknownValueString">Unknown</string>
     <string name="tvTotalDescriptionString">Total:</string>
+    <string name="tvInvalidValueEnteredString">The cost you entered is invalid</string>
+    <string name="btnClearInputString">Clear Input</string>
 
 </resources>
