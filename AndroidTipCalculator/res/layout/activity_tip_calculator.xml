@@ -8,4 +8,67 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".TipCalculator" >
 
+    <Button
+        android:id="@+id/btn20Percent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/button15Percent"
+        android:layout_alignBottom="@+id/button15Percent"
+        android:layout_marginLeft="21dp"
+        android:layout_toRightOf="@+id/button15Percent"
+        android:text="Button" />
+
+    <Button
+        android:id="@+id/btn10percent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="186dp"
+        android:layout_toLeftOf="@+id/button15Percent"
+        android:text="Button" />
+
+    <TextView
+        android:id="@+id/tvTip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/button15Percent"
+        android:layout_below="@+id/button15Percent"
+        android:layout_marginRight="52dp"
+        android:layout_marginTop="84dp"
+        android:text="Tip is:"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <Button
+        android:id="@+id/button15Percent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/btn10percent"
+        android:layout_alignBottom="@+id/btn10percent"
+        android:layout_centerHorizontal="true"
+        android:text="Button" />
+
+    <EditText
+        android:id="@+id/editText1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="67dp"
+        android:ems="10" >
+
+        <requestFocus />
+    </EditText>
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/tvTip"
+        android:layout_alignBottom="@+id/tvTip"
+        android:layout_alignRight="@+id/editText1"
+        android:layout_marginRight="38dp"
+        android:text="Small Text"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
 </RelativeLayout>
