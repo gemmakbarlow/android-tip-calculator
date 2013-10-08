@@ -1,6 +1,7 @@
 package com.gemmakbarlow.androidtipcalculator;
 
 import java.math.BigDecimal;
+import java.util.Locale;
 
 import android.os.Bundle;
 import android.app.Activity;
@@ -56,10 +57,13 @@ public class TipCalculator extends Activity {
     		if(costValue > MIN_COST_VALUE && costValue <= MAX_COST_VALUE) {
     			float tipValue = costValue * percentageMultiplier;
     			float roundedTipValue = round(tipValue, NUMBER_OF_DECIMAL_PLACES_FOR_USD);
-    			this.tvFinalTip.setText(String.valueOf(roundedTipValue));
+    			
+    			String finalTipText = String.format(Locale.US, "$ \t%.2f USD", roundedTipValue); 
+    			this.tvFinalTip.setText(finalTipText);
     			
     			float roundedOverallValue = round(costValue + tipValue, NUMBER_OF_DECIMAL_PLACES_FOR_USD);
-    			this.tvOverallCost.setText(String.valueOf(roundedOverallValue));
+    			String finalOverallText = String.format(Locale.US, "$ \t%.2f USD", roundedOverallValue);
+    			this.tvOverallCost.setText(finalOverallText);
     		}
     		else {
     			showInvalidCostToast();
