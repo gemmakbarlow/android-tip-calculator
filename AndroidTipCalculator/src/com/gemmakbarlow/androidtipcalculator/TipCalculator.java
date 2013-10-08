@@ -25,7 +25,7 @@ public class TipCalculator extends Activity {
 	private EditText etEnterCost;
 	private TextView tvFinalTip;
 	private TextView tvOverallCost;
-	private TextView tvInvalidCostEntered;
+	private Toast invalidCostEnteredToast;
 	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +36,6 @@ public class TipCalculator extends Activity {
         setEtEnterCost((EditText)findViewById(R.id.etTipInput));
         setTvFinalTip((TextView)findViewById(R.id.tvFinalTipValue));
         setTvOverallCost((TextView)findViewById(R.id.tvOverallValue));
-        setTvInvalidCostEntered((TextView)findViewById(R.id.tvInvalidCostEntered));
     }
 
 
@@ -83,14 +82,23 @@ public class TipCalculator extends Activity {
     	this.etEnterCost.setText("");
     	this.tvFinalTip.setText("");
     	this.tvOverallCost.setText("");
+    	this.invalidCostEnteredToast.cancel();
     }
     
     private void showInvalidCostToast() {
+    	
+    	if(this.invalidCostEnteredToast == null) {
+    		invalidCostEnteredToast = new Toast(this);
+    	}
+    	else {
+    		invalidCostEnteredToast.cancel();
+    	}
+    	
     	Context context = getApplicationContext();
     	int duration = Toast.LENGTH_SHORT;
-    	Toast toast = Toast.makeText(context, R.string.tvInvalidValueEnteredString, duration);
-    	toast.setGravity(Gravity.TOP|Gravity.CENTER, 0, 100);
-    	toast.show();
+    	invalidCostEnteredToast = Toast.makeText(context, R.string.tvInvalidValueEnteredString, duration);
+    	invalidCostEnteredToast.setGravity(Gravity.TOP|Gravity.CENTER, 0, 100);	
+    	invalidCostEnteredToast.show();
     }
     
     /**
@@ -164,15 +172,5 @@ public class TipCalculator extends Activity {
 	public void setTvOverallCost(TextView tvOverallCost) {
 		this.tvOverallCost = tvOverallCost;
 	}
-
-
-	public TextView getTvInvalidCostEntered() {
-		return tvInvalidCostEntered;
-	}
-
-
-	public void setTvInvalidCostEntered(TextView tvInvalidCostEntered) {
-		this.tvInvalidCostEntered = tvInvalidCostEntered;
-	}
-    
+ 
 }
