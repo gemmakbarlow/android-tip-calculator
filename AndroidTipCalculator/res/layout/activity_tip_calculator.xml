@@ -110,7 +110,6 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="30dp"
-        android:text="@string/tvInvalidValueEnteredString"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <Button

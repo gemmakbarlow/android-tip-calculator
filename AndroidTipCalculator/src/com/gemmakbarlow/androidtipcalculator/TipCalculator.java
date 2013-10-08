@@ -4,10 +4,13 @@ import java.math.BigDecimal;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.content.Context;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class TipCalculator extends Activity {
 
@@ -15,6 +18,8 @@ public class TipCalculator extends Activity {
 	final float TEN_PERCENT_FLOAT_MULTIPLIER = 0.10f;
 	final float FIFTEEN_PERCENT_FLOAT_MULTIPLIER = 0.15f;
 	final float TWENTY_PERCENT_FLOAT_MULTIPLIER = 0.20f;
+	final float MIN_COST_VALUE = 1.0f;
+	final float MAX_COST_VALUE = 1000000.0f;
 	
 	private EditText etEnterCost;
 	private TextView tvFinalTip;
@@ -31,8 +36,6 @@ public class TipCalculator extends Activity {
         setTvFinalTip((TextView)findViewById(R.id.tvFinalTipValue));
         setTvOverallCost((TextView)findViewById(R.id.tvOverallValue));
         setTvInvalidCostEntered((TextView)findViewById(R.id.tvInvalidCostEntered));
-        
-        showHideInvalidCostLabel(false);
     }
 
 
@@ -50,7 +53,7 @@ public class TipCalculator extends Activity {
     	if(cost.length() > 0) {
     		
     		float costValue = Float.parseFloat(cost);
-    		if(costValue > 1.0f && costValue <= 1000000.0f) {
+    		if(costValue > MIN_COST_VALUE && costValue <= MAX_COST_VALUE) {
     			float tipValue = costValue * percentageMultiplier;
     			float roundedTipValue = round(tipValue, NUMBER_OF_DECIMAL_PLACES_FOR_USD);
     			this.tvFinalTip.setText(String.valueOf(roundedTipValue));
@@ -59,11 +62,11 @@ public class TipCalculator extends Activity {
     			this.tvOverallCost.setText(String.valueOf(roundedOverallValue));
     		}
     		else {
-    			showHideInvalidCostLabel(true);
+    			showInvalidCostToast();
     		}
     	}
     	else {
-    		showHideInvalidCostLabel(true);
+    		showInvalidCostToast();
     	}
     }
     
@@ -76,14 +79,14 @@ public class TipCalculator extends Activity {
     	this.etEnterCost.setText("");
     	this.tvFinalTip.setText("");
     	this.tvOverallCost.setText("");
-    	
-    	showHideInvalidCostLabel(false);
     }
     
-    private void showHideInvalidCostLabel(Boolean showLabel) {
-    	
-    	int labelVisibility = (showLabel) ? View.VISIBLE : View.INVISIBLE;
-    	this.tvInvalidCostEntered.setVisibility(labelVisibility);
+    private void showInvalidCostToast() {
+    	Context context = getApplicationContext();
+    	int duration = Toast.LENGTH_SHORT;
+    	Toast toast = Toast.makeText(context, R.string.tvInvalidValueEnteredString, duration);
+    	toast.setGravity(Gravity.TOP|Gravity.CENTER, 0, 100);
+    	toast.show();
     }
     
     /**
